@@ -10,19 +10,15 @@ import {
 export default function App() {
   const { width } = useWindowDimensions();
 
-  // Breakpoints corregidos (mejor usar mayúsculas para constantes)
   const BREAKPOINTS = {
     MOBILE: 480,
     TABLET: 768,
     DESKTOP: 1024,
   };
 
-  // Lógica corregida (error crítico: isTablet estaba como width < 768)
-  const isMobile = width < BREAKPOINTS.TABLET; // < 768 = mobile
-  const isTablet =
-    width >= BREAKPOINTS.TABLET && // 768-1023 = tablet
-    width < BREAKPOINTS.DESKTOP;
-  const isDesktop = width >= BREAKPOINTS.DESKTOP; // >=1024 = desktop
+  const isMobile = width < BREAKPOINTS.TABLET;
+  const isTablet = width >= BREAKPOINTS.TABLET && width < BREAKPOINTS.DESKTOP;
+  const isDesktop = width >= BREAKPOINTS.DESKTOP;
 
   return (
     <View style={styles.container}>
